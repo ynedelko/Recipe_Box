@@ -15,3 +15,17 @@ post('/tags') do
   @tags = Tag.all()
   erb(:index)
 end
+
+delete('/tags/:id/delete') do
+  id = params.fetch("id").to_i()
+  @tag = Tag.find(id)
+  @tag.destroy()
+  redirect("/")
+end
+
+get('/tags/:id') do
+  @tag = Tag.find(params.fetch("id").to_i())
+  erb(:tag_detail)
+end
+
+#patch
