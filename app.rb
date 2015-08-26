@@ -16,6 +16,11 @@ post('/tags') do
   erb(:index)
 end
 
+get('/tags/:id') do
+  @tag = Tag.find(params.fetch("id").to_i())
+  erb(:tag_detail)
+end
+
 delete('/tags/:id/delete') do
   id = params.fetch("id").to_i()
   @tag = Tag.find(id)
@@ -23,9 +28,10 @@ delete('/tags/:id/delete') do
   redirect("/")
 end
 
-get('/tags/:id') do
-  @tag = Tag.find(params.fetch("id").to_i())
+patch('/tags/:id') do
+  new_name = params.fetch("name")
+  id = params.fetch("id").to_i()
+  @tag = Tag.find(id)
+  @tag.update({:name => new_name})
   erb(:tag_detail)
 end
-
-#patch

@@ -9,7 +9,7 @@
 <br>
 <h6>Update <%=@tag.name() %></h6>
 
-<form action="/tags/<%= @tag.id() %>/update" method="post">
+<form action="/tags/<%= @tag.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
   <input id="name" name="name" type="text">
 
