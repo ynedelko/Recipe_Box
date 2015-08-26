@@ -1,3 +1,4 @@
-require("sinatra/activerecord")
-require("./lib/recipe")
-require("./lib/tag")
+require("bundler/setup")
+Bundler.require(:default)
+
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
