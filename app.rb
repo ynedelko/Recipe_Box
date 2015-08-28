@@ -113,10 +113,14 @@ patch('/recipes/:id') do
 end
 
 #deleting a particular recipe and going back to the homepage
-delete('/tags/:tag_id/recipes/:id/delete') do
+delete('/recipes/:id/delete') do
   id = params.fetch("id").to_i()
-  tag_id = params.fetch("tag_id").to_i()
   @recipe = Recipe.find(id)
   @recipe.destroy()
-  redirect("/tags/#{tag_id}")
+  redirect("/")
+
+  # this is that the delete looked like: delete('/tags/:tag_id/recipes/:id/delete') do
+  # this is what the form action looked like:<form action='/tags/<%= @recipe.tags.first.id() %>/recipes/<%= @recipe.id() %>/delete' method='post'>
+  # it had this code inside:   tag_id = params.fetch("tag_id").to_i()
+  # redirect("/tags/#{tag_id}")
 end

@@ -28,7 +28,7 @@
   </form>
 
   <br>
-  <form action='/tags/<%= @recipe.tags.first.id() %>/recipes/<%= @recipe.id() %>/delete' method='post'>
+  <form action='/recipes/<%= @recipe.id() %>/delete' method='post'>
     <input type="hidden" name='_method' value='delete'>
     <button type='submit' class="btn btn-warning btn-xs">DELETE <%= @recipe.name %></button>
   </form>
