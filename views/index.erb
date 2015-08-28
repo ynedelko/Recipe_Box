@@ -2,7 +2,7 @@
 <h1>Recipe Box</h1>
 </center>
 
-<h2>Categories ("tags") go here:</h2>
+<h2>Categories</h2>
 
 <ul>
   <% @tags.each() do |tag| %>
@@ -10,10 +10,11 @@
   <% end %>
 </ul>
 
-<p>Add a Category</p>
 
 <form action="/tags" method="post">
   <input id="name" name="name" type="text">
 
-  <button type="submit" class="btn btn-success">add it</button>
+  <button type="submit" class="btn btn-success btn-xs">add a category</button>
 </form>
+
+<a href="/ingredients/all">View all ingredients</a>
